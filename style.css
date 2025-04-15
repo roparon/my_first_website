@@ -1,0 +1,21 @@
+body {
+    background-color: #f0f8ff;
+    font-family: Comic Sans MS, sans-serif;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  h1 {
+    color: #ff69b4;
+  }
+  
+  p {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
