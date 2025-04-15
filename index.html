@@ -1,34 +1,53 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Fun Website</title>
+  <title>My Smart Website</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>🌟 Welcome to My Fun Website! 🌟</h1>
+  <h1>🌟 Welcome to My Smart Website! 🌟</h1>
 
-  <p>Hello! I'm learning to build websites. 🎉</p>
+  <p id="greeting">Hello, friend! 🎉</p>
 
+  <!-- Name Input -->
+  <div class="section">
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="saveName()">Save Name</button>
+  </div>
+
+  <!-- Cat GIF -->
   <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Funny cat gif" width="300">
+
+  <!-- Smart Buttons -->
   <div class="section">
     <button onclick="document.getElementById('song').play()">Play Music 🎶</button>
     <audio id="song" src="your-audio-file.mp3"></audio>
-  </div>
 
-  <div class="section">
     <button onclick="changeColor()">Change Background 🎨</button>
+
+    <button onclick="toggleDarkMode()">Toggle Dark Mode 🌙</button>
   </div>
 
+  <!-- Click Counter Game -->
   <div class="section">
     <p>You clicked <span id="count">0</span> times!</p>
     <button onclick="countClicks()">Click Me!</button>
   </div>
 
+  <!-- Clock -->
   <div class="section">
-    <p>Check out my favorite site: <a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></p>
+    <p>🕒 The time is: <span id="clock"></span></p>
+  </div>
+
+  <div class="section">
+    <button onclick="showJoke()">Tell Me a Joke 😂</button>
+    <p id="joke"></p>
+  </div>
+
+  <div class="section">
+    <p>Check out: <a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></p>
   </div>
 
   <script>
@@ -42,6 +61,43 @@
     function changeColor() {
       document.body.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function showJoke() {
+      const jokes = [
+        "Why did the web developer go broke? Because he used up all his cache!",
+        "What do you call 8 hobbits? A hobbyte.",
+        "Why don't programmers like nature? It has too many bugs.",
+        "I would tell you a JavaScript joke, but you wouldn’t ‘get’ it."
+      ];
+      const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+      document.getElementById('joke').innerText = randomJoke;
+    }
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').innerText = now.toLocaleTimeString();
+    }
+
+    setInterval(updateClock, 1000);
+
+    function saveName() {
+      const name = document.getElementById('nameInput').value;
+      if (name) {
+        localStorage.setItem('username', name);
+        document.getElementById('greeting').innerText = `Hi, ${name}! 👋`;
+      }
+    }
+
+    window.onload = () => {
+      const savedName = localStorage.getItem('username');
+      if (savedName) {
+        document.getElementById('greeting').innerText = `Hi, ${savedName}! 👋`;
+      }
+    };
   </script>
 
 </body>
