@@ -5,3 +5,4 @@ def func(a, L=[]):
 print(func(1))
 print(func(2))
 print(func(3))
+
