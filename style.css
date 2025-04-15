@@ -3,10 +3,12 @@ body {
     font-family: Comic Sans MS, sans-serif;
     text-align: center;
     padding: 40px;
+    transition: background-color 0.5s ease;
   }
   
   h1 {
     color: #ff69b4;
+    animation: slideIn 2s ease-in-out;
   }
   
   p {
@@ -17,5 +19,46 @@ body {
   img {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  img:hover {
+    transform: scale(1.1);
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #87ceeb;
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #ffb6c1;
+    cursor: pointer;
+  }
+  
+  a {
+    color: #4169e1;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .section {
+    margin-top: 30px;
+  }
+  
+  @keyframes slideIn {
+    from { margin-left: -100%; opacity: 0; }
+    to { margin-left: 0; opacity: 1; }
   }
   

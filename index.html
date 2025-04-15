@@ -3,12 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
+  <title>My Fun Website</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🌈 Welcome to My Website!</h1>
+
+  <h1>🌟 Welcome to My Fun Website! 🌟</h1>
+
   <p>Hello! I'm learning to build websites. 🎉</p>
-  <img src="https://placekitten.com/300/200" alt="Cute kitten">
+
+  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Funny cat gif" width="300">
+  <div class="section">
+    <button onclick="document.getElementById('song').play()">Play Music 🎶</button>
+    <audio id="song" src="your-audio-file.mp3"></audio>
+  </div>
+
+  <div class="section">
+    <button onclick="changeColor()">Change Background 🎨</button>
+  </div>
+
+  <div class="section">
+    <p>You clicked <span id="count">0</span> times!</p>
+    <button onclick="countClicks()">Click Me!</button>
+  </div>
+
+  <div class="section">
+    <p>Check out my favorite site: <a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></p>
+  </div>
+
+  <script>
+    let count = 0;
+
+    function countClicks() {
+      count++;
+      document.getElementById('count').innerText = count;
+    }
+
+    function changeColor() {
+      document.body.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    }
+  </script>
+
 </body>
 </html>
